@@ -1,7 +1,10 @@
 FROM php:5.6.21-fpm
+MAINTAINER John Lund <john@praxent.com>
+#FROM php:5.6.21-fpm
 #Installing Dependencies
 RUN apt-get update && \
-    apt-get install git libssl-dev zip curl -y && \
+    apt-get install git libssl-dev zip curl nodejs npm -y && \
+    npm install -g bower && \
     rm -rf /var/lib/apt/lists/*
 
 #Installing and setting up composer
