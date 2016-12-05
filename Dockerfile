@@ -7,10 +7,7 @@ RUN apt-get update && \
     npm install -g bower && \
     ln -s /usr/bin/nodejs /usr/bin/node && \
     rm -rf /var/lib/apt/lists/*
-
+RUN echo date.timezone="America/Chicago" >> /usr/local/etc/php/conf.d/php.ini
 #Installing and setting up composer
 RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /bin/composer
-
-ONBUILD ARG TIMEZONE='date.timezone="America/Chicago"'
-ONBUILD RUN echo $TIMEZONE >> /usr/local/etc/php/php.ini
