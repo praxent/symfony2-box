@@ -7,3 +7,6 @@ RUN apt-get update && \
 #Installing and setting up composer
 RUN curl -sS https://getcomposer.org/installer | php && \
     mv composer.phar /bin/composer
+
+ONBUILD ARG TIMEZONE='date.timezone="America/Chicago"'
+ONBUILD RUN echo $TIMEZONE >> /usr/local/etc/php/php.ini
