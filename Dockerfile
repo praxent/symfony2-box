@@ -5,6 +5,7 @@ MAINTAINER John Lund <john@praxent.com>
 RUN apt-get update && \
     apt-get install git libssl-dev zip curl nodejs npm -y && \
     npm install -g bower && \
+    ln -s /usr/bin/nodejs /usr/bin/node && \
     rm -rf /var/lib/apt/lists/*
 
 #Installing and setting up composer
